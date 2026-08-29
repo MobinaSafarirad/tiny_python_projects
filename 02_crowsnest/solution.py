@@ -23,6 +23,12 @@ def main():
 
     args = get_args()
     word = args.word
+
+    # Guard against empty string input (fixes IndexError)
+    if not word:
+        print("Please provide a non‑empty word.")
+        return
+
     article = 'an' if word[0].lower() in 'aeiou' else 'a'
 
     print(f'Ahoy, Captain, {article} {word} off the larboard bow!')
