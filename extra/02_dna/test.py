@@ -27,7 +27,7 @@ def test_no_arg_and_usage():
 # --------------------------------------------------
 def run_single(base):
     """Run a single base test"""
-
+    random.seed(42)
     num = random.randint(1, 10)
     given = base * num
     rv, out = getstatusoutput(f'{prg} {given}')
