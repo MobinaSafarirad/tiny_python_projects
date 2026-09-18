@@ -27,7 +27,8 @@ def get_args():
     args = parser.parse_args()
 
     if os.path.isfile(args.text):
-        args.text = open(args.text).read().rstrip()
+        with open(args.text, encoding="utf-8") as fh:
+            args.text = fh.read().rstrip()
 
     return args
 
