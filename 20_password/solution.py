@@ -78,6 +78,11 @@ def main():
                 words.add(word.title())
 
     words = sorted(words)
+     if len(words) < args.num_words:
+        raise SystemExit(
+            f'Need at least {args.num_words} unique words, '
+            f'found {len(words)}.'
+        )
     passwords = [
         ''.join(random.sample(words, args.num_words)) for _ in range(args.num)
     ]
